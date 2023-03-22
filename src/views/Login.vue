@@ -1,11 +1,16 @@
 <template>
   <br><br><br><br>
-  <div class="container row mt-5">
+  <div class="container-fluid row mt-5">
     <div class="col-6">
-      <div class="card ms-auto me-auto p-3 shadow-lg custom-card">
+      <img src="../assets/main.png" style="padding-left: 10px" alt="">
+      <p class="font-monospace">Smile game is an interactive game that challenges players to test their knowledge in a fun and engaging way.In a Smile game, the player is presented with math questions, and they have a limited amount of time to select the correct answer. The game awards points for each correct answer and deducts 5 points for incorrect answers</p>
+    </div>
+    <div class="col-6 d-block m-auto">
+      <div style="margin:auto; padding-top: 50px !important; padding-bottom: 60px !important; background-color: rgba(0,0,0,0.5)" class="card ms-auto me-auto p-3 shadow-lg custom-card">
+<!--        <img src="../assets/smile-yana.gif" class="d-block m-auto" style="text-align:center;width: 50px" alt="">-->
+        <h4 class="mt-4 text-center text-white">Login</h4>
 
-        <font-awesome-icon icon="user-circle" class="ms-auto me-auto user-icon" />
-
+        <font-awesome-icon icon="" class="ms-auto me-auto user-icon" />
         <div v-if="errorMessage" class="alert alert-danger mt-2">
           {{ errorMessage }}
         </div>
@@ -15,7 +20,7 @@
             novalidate
             :class="submitted ? 'was-validated' : ''">
 
-          <div class="form-group">
+          <div class="text-white form-group">
             <label for="username">Username</label>
             <input
                 v-model="formData.username"
@@ -30,7 +35,7 @@
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="text-white form-group">
             <label for="password">Password</label>
             <input
                 v-model="formData.password"
@@ -46,7 +51,7 @@
           </div>
 
           <button
-              class="btn btn-danger w-100 mt-3"
+              class="btn btn-secondary w-100 mt-3"
               @click="submitted = true"
               :disabled="loading"
           >
@@ -57,21 +62,13 @@
         <router-link
             to="/register"
             class="btn btn-link"
-            style="color: darkgray;"
+            style="color: #e8ede9;"
         >
           Create a new Account?
         </router-link>
       </div>
     </div>
-    <div class="col-6">
-      <img src="../assets/logo.png" style="padding-left: 10px" height="100" alt="">
-      <p style="padding-top: 50px">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five
-        <br><br>
-        centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-      </p>
-    </div>
+
   </div>
 </template>
 
@@ -114,7 +111,7 @@ export default {
       AuthenticationService.login(formData.value).then((response) => {
         store.dispatch("updateUser", response.data);
         // router.push("/profile");
-        router.push("/play-game");
+        router.push("/home");
       }).catch((err) => {
         console.log(err);
         errorMessage.value = "Unexpected Error occurred.!!";

@@ -1,4 +1,4 @@
-# smile-game-frontend
+# smile-game-fe
 
 ## Project setup
 ```

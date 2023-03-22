@@ -1,10 +1,12 @@
 <template>
   <br><br><br><br>
   <div class="container mt-5">
-    <div class="card ms-auto me-auto p-3 shadow-lg custom-card">
+    <div style="padding-top: 50px !important; padding-bottom: 60px !important; background-color: rgba(0,0,0,0.5)" class="card ms-auto me-auto p-3 shadow-lg custom-card">
+      <img src="../assets/smile-yana.gif" class="d-block m-auto" style="text-align:center;width: 50px" alt="">
+      <h4 class="mt-4 text-center text-white">Register</h4>
 
-      <font-awesome-icon icon="user-circle" class="ms-auto me-auto user-icon" />
-
+<!--      <font-awesome-icon icon="user-circle" class="ms-auto me-auto user-icon" />-->
+<!--      <img src="../assets/Smile.png" style="width: 100px" class="ms-auto me-auto user-icon"  alt="">-->
       <div v-if="errorMessage" class="alert alert-danger mt-2">
         {{ errorMessage }}
       </div>
@@ -14,7 +16,7 @@
         novalidate
         :class="submitted ? 'was-validated' : ''">
 
-        <div class="form-group">
+        <div class="text-white form-group">
           <label for="name">Full Name</label>
           <input
             v-model="formData.name"
@@ -29,7 +31,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class=" text-white form-group">
           <label for="username">Username</label>
           <input
             v-model="formData.username"
@@ -39,12 +41,12 @@
             name="username"
             placeholder="Username"
             required>
-          <div class="invalid-feedback">
+          <div class="text-white invalid-feedback">
             Username is required.
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="text-white form-group">
           <label for="password">Password</label>
           <input
             v-model="formData.password"
@@ -60,7 +62,7 @@
         </div>
 
         <button
-          class="btn btn-danger w-100 mt-3"
+          class="btn btn-secondary w-100 mt-3"
           @click="submitted = true"
           :disabled="loading"
         >
@@ -71,7 +73,7 @@
       <router-link
         to="/login"
         class="btn btn-link"
-        style="color: darkgray;"
+        style="color: #e8ede9;"
       >
         I have an account!
       </router-link>
@@ -115,7 +117,7 @@ export default {
       this.loading = true;
 
       AuthenticationService.register(this.formData).then(() => {
-        router.push("/login");
+        router.push("/");
       }).catch((err) => {
         console.log(err);
         if (err?.response?.status === 409) {

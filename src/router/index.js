@@ -2,28 +2,20 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Register from "@/views/Register";
-import Profile from "@/views/Profile";
 import PlayGame from "@/views/PlayGame.vue";
-import Admin from "@/views/Admin";
 import NotFound from "@/views/NotFound";
 import Unauthorized from "@/views/Unauthorized";
-import Role from "@/models/role";
 import Store from "../store";
-import Testing from "@/views/Testing";
 
 const routes = [
   {
     path: "/",
-    component: Home
-  },
-  {
-    path: "/test",
-    component: Testing
-  },
-  {
-    name: "login",
-    path: "/login",
     component: Login
+  },
+  {
+    name: "home",
+    path: "/home",
+    component: Home
   },
   {
     name: "register",
@@ -34,18 +26,6 @@ const routes = [
     name: "play-game",
     path: "/play-game",
     component: PlayGame
-  },
-  {
-    name: "profile",
-    path: "/profile",
-    component: Profile,
-    meta: { roles: [Role.ADMIN, Role.USER] }
-  },
-  {
-    name: "admin",
-    path: "/admin",
-    component: Admin,
-    meta: { roles: [Role.ADMIN] }
   },
   {
     name: "404",
