@@ -1,12 +1,9 @@
 <template>
-  <br><br><br><br>
-  <div class="container mt-5">
-    <div style="padding-top: 50px !important; padding-bottom: 60px !important; background-color: rgba(0,0,0,0.5)" class="card ms-auto me-auto p-3 shadow-lg custom-card">
-      <img src="../assets/smile-yana.gif" class="d-block m-auto" style="text-align:center;width: 50px" alt="">
-      <h4 class="mt-4 text-center text-white">Register</h4>
+  <div style="left: 0; top: 0;position: absolute; width: 100%;height: 100%; background-color: white"></div>
+  <div class="container mt-5 pt-5">
+    <div style="padding-top: 50px !important; padding-bottom: 60px !important; background-color: rgba(219, 89, 2,0.7)" class="card ms-auto me-auto p-3 shadow-lg custom-card">
 
-<!--      <font-awesome-icon icon="user-circle" class="ms-auto me-auto user-icon" />-->
-<!--      <img src="../assets/Smile.png" style="width: 100px" class="ms-auto me-auto user-icon"  alt="">-->
+      <h4 class="mt-4 text-center text-white">Register</h4>
       <div v-if="errorMessage" class="alert alert-danger mt-2">
         {{ errorMessage }}
       </div>
@@ -62,7 +59,7 @@
         </div>
 
         <button
-          class="btn btn-secondary w-100 mt-3"
+          class="btn btn-dark w-50 d-block m-auto mt-3"
           @click="submitted = true"
           :disabled="loading"
         >
@@ -71,7 +68,7 @@
       </form>
 
       <router-link
-        to="/login"
+        to="/"
         class="btn btn-link"
         style="color: #e8ede9;"
       >
@@ -82,10 +79,10 @@
 </template>
 
 <script>
-import User from "@/models/user";
+import User from "@/models/User";
 import vuex from "vuex";
 import router from "@/router";
-import AuthenticationService from "@/services/authentication.service";
+import AuthenticationService from "@/services/AuthenticationService";
 
 export default {
   name: "Register",
@@ -116,7 +113,7 @@ export default {
 
       this.loading = true;
 
-      AuthenticationService.register(this.formData).then(() => {
+      AuthenticationService.singUp(this.formData).then(() => {
         router.push("/");
       }).catch((err) => {
         console.log(err);

@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Register from "@/views/Register";
-import PlayGame from "@/views/PlayGame.vue";
+import PlayGame from "@/views/Game.vue";
 import NotFound from "@/views/NotFound";
 import Unauthorized from "@/views/Unauthorized";
 import Store from "../store";

@@ -6,8 +6,6 @@
         <h1 style="margin-left:20px; color: #202020; font-weight: bold"> Smile<img src="./assets/smile-yana.gif" style="width: 50px" alt=""></h1>
 <!--        <img src="./assets/logo.png" style="padding-left: 10px" height="100" alt="">-->
       </router-link>
-
-
       <div class="navbar-nav ms-auto" v-if="!currentUser"  style="margin-right:100px;font-weight: bold">
         <li class="nav-item">
           <router-link class="nav-link text-black-50" to="/register" active-class="active">
@@ -44,7 +42,6 @@
 <script>
 
 import vuex from "vuex";
-import Role from "@/models/role";
 import router from "@/router";
 
 export default {
